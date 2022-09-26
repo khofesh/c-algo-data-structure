@@ -1,7 +1,4 @@
 #include "binary.h"
-int convertBinaryToDecimal(long long n);
-
-
 
 long long convertDecimalToBinary(int n)
 {

@@ -47,7 +47,7 @@ tests: $(TEST_C_EXECUTABLE)
 
 $(TEST_C_EXECUTABLE):$(TESTS)
 	mkdir -p $(BUILD_TESTS_DIR)
-	$(CC) $@.c $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka
+	$(CC) $(CPPFLAGS) $@.c $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka
 
 .PHONY: clean
 clean:

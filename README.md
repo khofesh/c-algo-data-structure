@@ -45,3 +45,11 @@ $(CPP_EXECUTABLE):$(CPP_SOURCES)
 clean:
 		rm -rf $(EXECUTABLE)
 ```
+
+how to do this in makefile?
+
+```shell
+gcc -I./src/include/binary/ tests/test_binary.c src/source/binary/binary-to-decimal.c src/source/binary/decimal-to-binary.c -Wall -g -lm -o ./build/tests/test_binary -lcmocka
+
+gcc -I./src -I./src/include -I./src/include/binary -I./src/source -I./src/source/binary -I./src/example -MMD -MP tests/test_binary.c -Wall -g -lm -o ./build/tests/test_binary -lcmocka
+```
