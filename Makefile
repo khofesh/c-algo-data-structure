@@ -6,15 +6,19 @@ CFLAGS = -Wall -g -lm
 
 BUILD_DIR := ./build
 BUILD_TESTS_DIR := ./build/tests
+BUILD_EXAMPLES_DIR := ./build/examples
 SRC_DIRS := ./src
 TEST_DIRS := ./tests
+EXAMPLE_DIRS := ./examples
 
 # Find all the C and C++ files we want to compile
 # Note the single quotes around the * expressions. Make will incorrectly expand these otherwise.
 SRCS := $(shell find $(SRC_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
 TESTS := $(shell find $(TEST_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
+EXAMPLES := $(shell find $(EXAMPLE_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
 
 TEST_C_EXECUTABLE :=$(TESTS:.c=)
+EXAMPLE_C_EXECUTABLE :=$(EXAMPLES:.c=)
 C_EXECUTABLE :=$(SRCS:.c=)
 
 # String substitution for every C/C++ file.
@@ -43,11 +47,21 @@ $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
+#testBinary:
+#	mkdir -p $(BUILD_TESTS_DIR)
+#	$(CC) $(CPPFLAGS) tests/test_binary.c $(SRCS) $(CFLAGS) -o $(BUILD_TESTS_DIR)/test_binary -lcmocka
+
 tests: $(TEST_C_EXECUTABLE)
 
 $(TEST_C_EXECUTABLE):$(TESTS)
 	mkdir -p $(BUILD_TESTS_DIR)
-	$(CC) $(CPPFLAGS) $@.c $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka
+	$(CC) $(CPPFLAGS) $@.c $(SRCS) $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka
+
+examples: $(EXAMPLE_C_EXECUTABLE)
+
+$(EXAMPLE_C_EXECUTABLE):$(EXAMPLES)
+	mkdir -p $(BUILD_EXAMPLES_DIR)
+	$(CC) $(CPPFLAGS) $@.c $(SRCS) $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka
 
 .PHONY: clean
 clean:
