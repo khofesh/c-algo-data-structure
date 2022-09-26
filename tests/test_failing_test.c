@@ -1,7 +1,4 @@
-#include <stdarg.h>
-#include <stddef.h>
-#include <setjmp.h>
-#include <cmocka.h>
+#include "tests.h"
 
 static void failing_test() {
 	assert_false(1 != 2);

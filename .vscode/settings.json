@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.yaml": "yaml",
+    "tests.h": "c"
+  }
+}
