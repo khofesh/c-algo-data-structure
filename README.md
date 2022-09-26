@@ -9,3 +9,9 @@ install dependencies
 ```shell
 sudo dnf install libcmocka-devel
 ```
+
+## build tests
+
+```shell
+make tests
+```

@@ -7,11 +7,16 @@ CC = gcc
 CFLAGS = -Wall -g
 
 BUILD_DIR := ./build
+BUILD_TESTS_DIR := ./build/tests
 SRC_DIRS := ./src
+TEST_DIRS := ./tests
 
 # Find all the C and C++ files we want to compile
 # Note the single quotes around the * expressions. Make will incorrectly expand these otherwise.
 SRCS := $(shell find $(SRC_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
+TESTS := $(shell find $(TEST_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
+
+TEST_C_EXECUTABLE :=$(TESTS:.c=)
 
 # String substitution for every C/C++ file.
 # As an example, hello.cpp turns into ./build/hello.cpp.o
@@ -39,6 +44,11 @@ $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
+tests: $(TEST_C_EXECUTABLE)
+
+$(TEST_C_EXECUTABLE):$(TESTS)
+	mkdir -p $(BUILD_TESTS_DIR)
+	$(CC) $< $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka 
 
 .PHONY: clean
 clean:
