@@ -18,9 +18,10 @@ make tests
 
 ## references
 
-https://gist.github.com/wkentaro/4156dfc7922437a9ff60
-https://www.testcookbook.com/book/c/unit-test-with-cmocka.html
-https://stackoverflow.com/questions/29945791/undefined-reference-to-cmocka-run-group-tests-when-running-sample-cmocka-te
+- https://gist.github.com/wkentaro/4156dfc7922437a9ff60
+- https://www.testcookbook.com/book/c/unit-test-with-cmocka.html
+- https://stackoverflow.com/questions/29945791/undefined-reference-to-cmocka-run-group-tests-when-running-sample-cmocka-te
+- https://blog.microjoe.org/2017/unit-tests-c-cmocka-coverage-cmake.html#complete-example
 
 # Makefile examples
 

@@ -1,10 +1,8 @@
 # Thanks to Job Vranish (https://spin.atomicobject.com/2016/08/26/makefile-c-projects/)
 TARGET_EXEC := final_program
 
-top := $(CURDIR)
-
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 
 BUILD_DIR := ./build
 BUILD_TESTS_DIR := ./build/tests
@@ -17,6 +15,7 @@ SRCS := $(shell find $(SRC_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
 TESTS := $(shell find $(TEST_DIRS) -name '*.cpp' -or -name '*.c' -or -name '*.s')
 
 TEST_C_EXECUTABLE :=$(TESTS:.c=)
+C_EXECUTABLE :=$(SRCS:.c=)
 
 # String substitution for every C/C++ file.
 # As an example, hello.cpp turns into ./build/hello.cpp.o
@@ -44,11 +43,19 @@ $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
+all:$(C_EXECUTABLE)
+
+$(C_EXECUTABLE):$(SRCS)
+	mkdir -p $(BUILD_DIR)
+	$(CC) $< $(LDFLAGS) $(CFLAGS) -o $(BUILD_DIR)/$@
+
+includes = $(wildcard src/include/*.h)
+
 tests: $(TEST_C_EXECUTABLE)
 
-$(TEST_C_EXECUTABLE):$(TESTS)
+$(TEST_C_EXECUTABLE):$(TESTS) $(DEPS)
 	mkdir -p $(BUILD_TESTS_DIR)
-	$(CC) $< $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka 
+	$(CC) $^ $(CFLAGS)  -o $(BUILD_DIR)/$@ -lcmocka 
 
 .PHONY: clean
 clean:
