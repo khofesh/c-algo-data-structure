@@ -43,19 +43,11 @@ $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-all:$(C_EXECUTABLE)
-
-$(C_EXECUTABLE):$(SRCS)
-	mkdir -p $(BUILD_DIR)
-	$(CC) $< $(LDFLAGS) $(CFLAGS) -o $(BUILD_DIR)/$@
-
-includes = $(wildcard src/include/*.h)
-
 tests: $(TEST_C_EXECUTABLE)
 
-$(TEST_C_EXECUTABLE):$(TESTS) $(DEPS)
+$(TEST_C_EXECUTABLE):$(TESTS)
 	mkdir -p $(BUILD_TESTS_DIR)
-	$(CC) $^ $(CFLAGS)  -o $(BUILD_DIR)/$@ -lcmocka 
+	$(CC) $@.c $(CFLAGS) -o $(BUILD_DIR)/$@ -lcmocka
 
 .PHONY: clean
 clean:
