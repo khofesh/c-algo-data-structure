@@ -22,6 +22,8 @@ make tests
 - https://www.testcookbook.com/book/c/unit-test-with-cmocka.html
 - https://stackoverflow.com/questions/29945791/undefined-reference-to-cmocka-run-group-tests-when-running-sample-cmocka-te
 - https://blog.microjoe.org/2017/unit-tests-c-cmocka-coverage-cmake.html#complete-example
+- https://stackoverflow.com/questions/17896751/makefile-use-multiple-makefiles
+- https://stackoverflow.com/questions/59630531/multiple-makefile-for-a-single-project
 
 # Makefile examples
 
@@ -53,3 +55,5 @@ gcc -I./src/include/binary/ tests/test_binary.c src/source/binary/binary-to-deci
 
 gcc -I./src -I./src/include -I./src/include/binary -I./src/source -I./src/source/binary -I./src/example -MMD -MP tests/test_binary.c -Wall -g -lm -o ./build/tests/test_binary -lcmocka
 ```
+
+https://github.com/pantuza/c-project-template

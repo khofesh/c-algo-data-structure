@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "binary.h"
 
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
     int n = 0;
     long long result = 0;
@@ -12,6 +12,6 @@ int main(int argc, char *argv[])
     result = convertDecimalToBinary(n);
 
     printf("%d in decimal = %lld in binary\n", n, result);
-    
+
     return 0;
 }
