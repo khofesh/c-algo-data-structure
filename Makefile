@@ -8,8 +8,12 @@ export CFLAGS = -Wall -g
 export LDFLAGS = -lm
 export TEST_LDFLAGS = -lmocka
 
-fuck:
+example:
 	@$(MAKE) -C examples/binary -f binary.mk
+	@$(MAKE) -C examples/concurrency -f concurrency.mk
+	@$(MAKE) -C examples/signal -f signal.mk
 
 clean:
 	@$(MAKE) -C examples/binary -f binary.mk clean
+	@$(MAKE) -C examples/concurrency -f concurrency.mk clean
+	@$(MAKE) -C examples/signal -f signal.mk clean

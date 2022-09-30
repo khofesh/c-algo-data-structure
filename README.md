@@ -16,6 +16,11 @@ sudo dnf install libcmocka-devel
 make tests
 ```
 
+## secure programming
+
+- https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
+- https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+
 ## references
 
 - https://gist.github.com/wkentaro/4156dfc7922437a9ff60
