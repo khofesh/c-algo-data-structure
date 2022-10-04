@@ -10,12 +10,15 @@ OBJFLS = binary.o\
 
 EXE    = binary.out
 
+MY_BUILD_DIR = $(BUILD_DIR)/examples/binary
+
 CC     = gcc
 # CFLAGS =
 # LFLAGS =
 
 $(EXE):
-	$(CC) $(INCDRS) $(SRCFLS) $(CFLAGS) $(LDFLAGS) -o $@ 
+	mkdir -p $(MY_BUILD_DIR)
+	$(CC) $(INCDRS) $(SRCFLS) $(CFLAGS) $(LDFLAGS) -o $(MY_BUILD_DIR)/$@ 
 # $(EXE): $(OBJFLS)
 # 	$(LL) $(LFLAGS) -o $@ $(OBJFLS) $(LIBDRS) $(LIBFLS)
 
