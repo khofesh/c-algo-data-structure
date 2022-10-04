@@ -13,7 +13,6 @@ test_do_nothing.out: test_do_nothing.c
 	$(CC) $(INC_TEST_DRS) $^ $(CFLAGS) -o $(MY_BUILD_DIR)/$@ $(LDFLAGS) $(TEST_LFLAGS)
 
 test_failing_test.out: test_failing_test.c
-	mkdir -p $(MY_BUILD_DIR)
 	$(CC) $(INC_TEST_DRS) $^ $(CFLAGS) -o $(MY_BUILD_DIR)/$@ $(LDFLAGS) $(TEST_LFLAGS)
 
 clean:
