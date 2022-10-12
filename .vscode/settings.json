@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "*.yaml": "yaml",
-    "tests.h": "c"
+    "tests.h": "c",
+    "stddef.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
