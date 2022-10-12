@@ -1,6 +1,3 @@
-/*
- * insertion sort
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,6 +41,16 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+/**
+ * @brief insertion sort, O(n^2).
+ *
+ *
+ * @param data
+ * @param size
+ * @param esize
+ * @param compare
+ * @return int
+ */
 int issort(void *data, int size, int esize, fptrCompare compare)
 {
     char *a = data;
