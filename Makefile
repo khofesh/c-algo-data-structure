@@ -9,6 +9,8 @@ export CFLAGS = -Wall -g -fsanitize=address
 export LDFLAGS = -lm
 export TEST_LDFLAGS = -lmocka
 
+list:
+	@$(MAKE) -C examples/linked_lists -f linked_lists.mk
 test:
 	@$(MAKE) -C tests/binary -f binary.mk
 	@$(MAKE) -C tests/basic_cmocka -f basic_cmocka.mk

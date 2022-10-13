@@ -16,18 +16,20 @@ void list_init(List *list, fptrDestroy destroy)
 
 void list_destroy(List *list)
 {
-    void *data;
+    void *data = NULL;
 
     while (list_size(list) > 0)
     {
         if (list_rem_next(list, NULL, (void **)&data) == 0 && list->destroy != NULL)
         {
+
             // call a user-defined function to free dynamically allocated data.
+            // TODO: fix AddressSanitizer: attempting double-free
             list->destroy(data);
         }
     }
 
-    // no operations are allowed now, but clear the structure as a precation.
+    // no operations are allowed now, but clear the structure as a precaution.
     memset(list, 0, sizeof(List));
 
     return;
@@ -71,7 +73,7 @@ int list_ins_next(List *list, ListElmt *element, const void *data)
     // adjust the size of the list
     list->size++;
 
-    return 0
+    return 0;
 }
 
 int list_rem_next(List *list, ListElmt *element, void **data)
