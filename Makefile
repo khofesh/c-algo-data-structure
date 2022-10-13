@@ -5,7 +5,7 @@ export SOURCE_DIR = $(TOP_DIR)/src/source
 export BUILD_DIR = $(TOP_DIR)/build
 
 export CC = gcc
-export CFLAGS = -Wall -g
+export CFLAGS = -Wall -g -fsanitize=address
 export LDFLAGS = -lm
 export TEST_LDFLAGS = -lmocka
 

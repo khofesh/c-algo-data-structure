@@ -74,3 +74,8 @@ gcc -I./src -I./src/include -I./src/include/binary -I./src/source -I./src/source
 # TODOs
 
 - clean up `examples/sort` and `examples/recursion`
+
+# References
+
+- Mastering algorithms with C
+- Understanding and Using C Pointers
