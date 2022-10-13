@@ -27,15 +27,6 @@ make example
 - https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
 - https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
 
-## references
-
-- https://gist.github.com/wkentaro/4156dfc7922437a9ff60
-- https://www.testcookbook.com/book/c/unit-test-with-cmocka.html
-- https://stackoverflow.com/questions/29945791/undefined-reference-to-cmocka-run-group-tests-when-running-sample-cmocka-te
-- https://blog.microjoe.org/2017/unit-tests-c-cmocka-coverage-cmake.html#complete-example
-- https://stackoverflow.com/questions/17896751/makefile-use-multiple-makefiles
-- https://stackoverflow.com/questions/59630531/multiple-makefile-for-a-single-
-
 ## for template
 
 - https://github.com/pantuza/c-project-template
@@ -79,3 +70,9 @@ gcc -I./src -I./src/include -I./src/include/binary -I./src/source -I./src/source
 
 - Mastering algorithms with C
 - Understanding and Using C Pointers
+- https://gist.github.com/wkentaro/4156dfc7922437a9ff60
+- https://www.testcookbook.com/book/c/unit-test-with-cmocka.html
+- https://stackoverflow.com/questions/29945791/undefined-reference-to-cmocka-run-group-tests-when-running-sample-cmocka-te
+- https://blog.microjoe.org/2017/unit-tests-c-cmocka-coverage-cmake.html#complete-example
+- https://stackoverflow.com/questions/17896751/makefile-use-multiple-makefiles
+- https://stackoverflow.com/questions/59630531/multiple-makefile-for-a-single-project

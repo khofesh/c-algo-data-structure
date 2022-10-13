@@ -1,10 +1,13 @@
-CC = gcc
-CFLAGS = -g -Wall -lm
+CC :=gcc
+LDFLAGS :=
+CFLAGS := -g -Wall -lm
+C_SOURCES :=$(wildcard *.c)
+C_EXECUTABLE :=$(C_SOURCES:.c=)
 
-SRCS := $(shell find . -name '*.c')
+all:$(C_EXECUTABLE)
 
-compile:
-	$(CC) $(CFLAGS) $(SRCS) -o main
+$(C_EXECUTABLE):$(C_SOURCES)
+	$(CC) $< $(LDFLAGS) $(CFLAGS) -o $@
 
-clean: 
-	rm -f main
+clean:
+	rm -rf $(C_EXECUTABLE)
