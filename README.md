@@ -45,13 +45,14 @@ CPP_EXECUTABLE :=$(CPP_SOURCES:.cpp=)
 all:$(C_EXECUTABLE) $(CPP_EXECUTABLE)
 
 $(C_EXECUTABLE):$(C_SOURCES)
-		$(CC) $< $(LDFLAGS) $(CFLAGS) -o $@
+	$(CC) $< $(LDFLAGS) $(CFLAGS) -o $@
 
 $(CPP_EXECUTABLE):$(CPP_SOURCES)
-		$(CPP) $< $(LDFLAGS) $(CFLAGS) -o $@
+	$(CPP) $< $(LDFLAGS) $(CFLAGS) -o $@
 
 clean:
-		rm -rf $(EXECUTABLE)
+	rm -rf $(C_EXECUTABLE)
+	rm -rf $(CPP_EXECUTABLE)
 ```
 
 sample for compiling a unit test
