@@ -19,6 +19,7 @@ example:
 	@$(MAKE) -C examples/binary -f binary.mk
 	@$(MAKE) -C examples/concurrency -f concurrency.mk
 	@$(MAKE) -C examples/signal -f signal.mk
+	@$(MAKE) -C examples/linked_lists -f linked_lists.mk
 
 clean:
 	rm -rf build

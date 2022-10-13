@@ -17,4 +17,3 @@ $(CPP_EXECUTABLE):$(CPP_SOURCES)
 
 clean:
 	rm -rf $(C_EXECUTABLE)
-	rm -rf $(CPP_EXECUTABLE)
