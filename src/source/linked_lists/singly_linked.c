@@ -21,16 +21,9 @@ void list_destroy(List *list)
         int res = list_rem_next(list, NULL, (void **)&data);
         // (void *)res;
 
-        switch (res)
+        if (res != 0)
         {
-        case 0:
-            break;
-        case -1:
-            printf("Error: Invalid argument\n");
-            break;
-        default:
-            printf("Error: Unknown error\n");
-            break;
+            printf("Error: list_rem_next return non-zero\n");
         }
     }
 
