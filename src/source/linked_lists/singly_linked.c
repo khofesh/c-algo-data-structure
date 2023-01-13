@@ -19,12 +19,18 @@ void list_destroy(List *list)
     while (list_size(list) > 0)
     {
         int res = list_rem_next(list, NULL, (void **)&data);
-        if (res == 0 && list->destroy != NULL)
-        {
+        // (void *)res;
 
-            // call a user-defined function to free dynamically allocated data.
-            // TODO: fix AddressSanitizer: attempting double-free
-            list->destroy(data);
+        switch (res)
+        {
+        case 0:
+            break;
+        case -1:
+            printf("Error: Invalid argument\n");
+            break;
+        default:
+            printf("Error: Unknown error\n");
+            break;
         }
     }
 

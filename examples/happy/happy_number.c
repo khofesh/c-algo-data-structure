@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 // https://leetcode.com/problems/happy-number/
+// https://leetcode.com/problems/happy-number/solution/
 
 int square_sum(int n);
 bool is_happy(int n);

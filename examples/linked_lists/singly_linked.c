@@ -102,6 +102,8 @@ int main(int argc, char **argv)
     fprintf(stdout, "Destroying the list\n");
     list_destroy(&list);
 
+    free(data);
+
     return 0;
 }
 

@@ -66,7 +66,6 @@ gcc -I./src -I./src/include -I./src/include/binary -I./src/source -I./src/source
 # TODOs
 
 - clean up `examples/sort` and `examples/recursion`
-- `singly_linked.c` fix AddressSanitizer: attempting double-free
 
 # References
 
