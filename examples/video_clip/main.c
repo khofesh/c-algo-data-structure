@@ -19,13 +19,6 @@ int max(int a, int b);
 
 int main()
 {
-    /*
-    const intervals = [
-    [1, 4],
-    [10, 11],
-    [4, 5],
-  ];
-    */
     int intervals[3][2] = {
         {1, 4},
         {10, 11},
@@ -92,10 +85,12 @@ void mergeIntervals(int intervals[3][2], int size)
             mergedIntervals[mergedSize - 1][1] = max(intervals[i][1], mergedIntervals[mergedSize - 1][1]);
         }
     }
+    printf("[ ");
     for (int i = 0; i < mergedSize; i++)
     {
-        printf("[%d,%d]\n", mergedIntervals[i][0], mergedIntervals[i][1]);
+        printf("[%d,%d] ", mergedIntervals[i][0], mergedIntervals[i][1]);
     }
+    printf("]\n");
 }
 
 // Compare function for qsort, sorts intervals by start time
