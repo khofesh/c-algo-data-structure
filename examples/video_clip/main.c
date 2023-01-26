@@ -43,6 +43,14 @@ int main()
     };
 
     printf("first interval:::::::\n");
+    /**
+     * The first line calculates the size of the entire array (in bytes)
+     * divided by the size of one row (also in bytes), which gives you
+     * the number of rows in the array. The second line calculates
+     * the size of one row (in bytes) divided by the size of one
+     * element (also in bytes), which gives you the number of
+     * columns in the array.
+     */
     int rows = sizeof(intervals) / sizeof(intervals[0]);
     // int cols = sizeof(intervals[0]) / sizeof(int);
 
